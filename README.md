@@ -1,0 +1,1 @@
+All Advanced Javascript exercises here!
