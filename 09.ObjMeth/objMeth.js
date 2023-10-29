@@ -9,3 +9,4 @@ const keys = Object.keys(person);
 keys.forEach((key) => {
     console.log(`${key}: ${person[key]}`);
 });
+
