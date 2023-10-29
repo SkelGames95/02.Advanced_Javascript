@@ -9,8 +9,8 @@ function multiplyByTwo(input) {
 const result = multiplyByTwo(4)();
 console.log(result);
 
-// la sintassi della consegna, come in molte altri esercizi, lascia spazio a molti dubbi e non è definita in modo corretto. Di seguito l'analisi di chat.gpt dove si evince che il valore da dare
-// alle variabili è sottinteso e non è specificato correttamente l'uso dei vari fattori:
+// la sintassi della consegna, come in molte altri esercizi di Javascript in particolare, lascia spazio a molti dubbi e non è definita in modo corretto. Di seguito l'analisi di chat.gpt dove si
+// evince che il valore da dare alle variabili è sottinteso e non è specificato correttamente l'uso dei vari fattori:
 
 // The assignment is asking you to create a closure in JavaScript that consists of two nested functions: multiplyByTwo and inner. Here's an explanation:
 // Outer Function (multiplyByTwo): You need to define a function called multiplyByTwo that takes one parameter. This function will return another function, creating a closure.
