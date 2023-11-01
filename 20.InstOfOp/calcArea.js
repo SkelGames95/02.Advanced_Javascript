@@ -20,7 +20,7 @@ class Circle {
 class AreaCalculator {
     static calculate (geom){
         if (geom instanceof Square){
-            return geom.side*2;
+            return geom.side*geom.side;
         } else if (geom instanceof Rectangle){
             return geom.width*geom.height;
         } else if (geom instanceof Circle){
