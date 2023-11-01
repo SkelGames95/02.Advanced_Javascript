@@ -17,3 +17,5 @@ log(result);
 
 let x = (((2 + 4) * (5 + 2) - 2) / 5); // ho fatto una prova per vedere se si potesse fare nel pratico senza dover ricorrere a tutta questa procedura
 console.log(x);
+
+log(divide(subtract(multiply(sum(2, 4), sum(5, 2)),2),5))  // right result requested
