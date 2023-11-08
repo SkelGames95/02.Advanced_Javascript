@@ -2,13 +2,18 @@
 //     return person.age >= 18;
 // }
 
+// function isAdult({age}) {
+//     if(age >= 18){
+//         return person;
+//     } else {
+//         let person = "Your age is invalid!";
+//         return person;
+//     }
+// }
+
+// La prossima volta facciamo le cose semplici:
 function isAdult({age}) {
-    if(age >= 18){
-        return person;
-    } else {
-        let person = "Your age is invalid!";
-        return person;
-    }
+    return age >= 18;
 }
 
 const person = {
