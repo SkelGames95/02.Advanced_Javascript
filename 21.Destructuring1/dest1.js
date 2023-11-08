@@ -31,3 +31,15 @@ let [d, c] = arr;
 
 console.log('After swap:');
 console.log(c + ", " + d);
+
+console.log("----------------------------------------------")
+
+let num3 = 10;
+let num4 = 20;
+console.log('Before swap: ', num1, num2); // Before swap: 10 20
+
+// Variable swapping
+[num4, num3] = [num3, num4];
+
+console.log('After swap: ', num3, num4); // After swap: 20 10
+console.log("----------------------------------------------")
