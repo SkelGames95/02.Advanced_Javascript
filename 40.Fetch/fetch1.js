@@ -1,6 +1,6 @@
-async function recover() {
+async function recovers() {
     let get = await fetch ("https://jsonplaceholder.typicode.com/todos");
     return console.log(get);
 }
 
-recover();
+recovers();
