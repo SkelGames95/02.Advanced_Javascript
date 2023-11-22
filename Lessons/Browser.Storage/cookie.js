@@ -10,9 +10,9 @@ loadCookies();      // utility function to load cookies that already exist (look
 function getCookie(name) {      // this function get the value attached to the cookie
     const cookieValue = document.cookie
         .split(`; `)
-        .find((row) => row.startsWith(`${name}=`))
+        .find((row) => row.startsWith(`${name}=`))      // find the row that starts with the name of our interest
         ?.split(`=`)[1];
-    return cookieValue;
+    return cookieValue;     // tere's a lot of string manipulation before this return
 }
 
 function setCookie(name, value) {       // function for setting a cookie from name and value parameters
@@ -26,7 +26,7 @@ let inputs = document.querySelectorAll("input[type='color']");
 inputs.forEach((input, i) => {
     input.addEventListener("change", (evt) => {     // function that let to perform actions when a value changes
         let val = evt.target.value;
-        setCookie(names[i], val);
+        setCookie(names[i], val);       // callback to setCookie function
         document.documentElement.style.setProperty(`--${names[i]}`, val);
     })
 })
