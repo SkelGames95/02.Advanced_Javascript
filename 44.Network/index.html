@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <div id="todoContainer"></div>
+    <script>
+        async function getTodo() {
+            const body = document.getElementById("todoContainer");
+            let response = await fetch ("https://jsonplaceholder.typicode.com/todos/4");
+            let data = await response.json();
+            let str = `<h2>${data.title}</h2>`;
+            let input = `<input type = "checkbox" ${data.completed ? "checked" : " "}>`;    // non ho capito bene questa riga
+            body.innerHTML += str + input;
+        };
+        getTodo();
+    </script>
+</body>
+</html>
