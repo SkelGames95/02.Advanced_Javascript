@@ -1,0 +1,60 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>Title</label>
+          <input type="text" class="title" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" class="checkbox" id="todo-completed" />
+        </div>
+        <br>
+        <button type="submit" id="submit-todo">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const API_URL = "https://jsonplaceholder.typicode.com/posts";   //scrivere "link/1" ritorna l'obj corrispondente a id:1
+
+  const checkbox = document.querySelector(".checkbox");
+  const text = document.querySelector(".title");
+  const form = document.querySelector("form");
+
+  async function postData() {
+    const post = {                            // per leggibilità, sapendo di dover fare un post si prepara il suo contenuto come costante che corrisponde all'oggetto
+      title: text.value,                      // dichiariamo che a 'title' deve corrispondere il valore inserito nel tag corrispondente alla variabile text
+      flagCompleted: checkbox.checked,        // dichiariamo che a 'flagCompleted' deve corrispondere il valore booleano della casella corrispondente alla variabile checkbox
+    };
+    
+    try {                                     // nella formulazione del fetch è buona norma definire un try...catch
+      const asfun = await fetch(API_URL, {
+        method: "POST",                       // definizione del metodo "POST" come parametro
+        headers: {                            // informazioni aggiuntive essenziali. Qui definiamo il tipo di contenuto (senza non funziona)
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post),           // il body è il contenuto di ciò che mandiamo. Parte come oggetto ma, inviandolo nel database, dobbiamo convertirlo in una stringa JSON 
+      });                                     // si va quindi a richiamare l'oggetto con la sua variabile corrispondente
+      
+      if (asfun.ok) {                         // asfun.ok sta ad indicare l'esito positivo della chiamata fetch, associata alla variabile asfun in precedenza
+        console.log(await asfun.json());      // ricorda: il metodo .json() equivale al parse ma viene utilizzato nelle API calls
+      } else {
+        console.error(asfun.status, await asfun.text());    // qui stiamo definendo come risultato dell'errore il console.log dello status e il testo risultanto, cosa che avremmo potuto incorporare nel catch
+      }                                                     // se l'API è di tipo text basta sostituire il metodo .json() con il metodo .text() - Esiste anche il metodo .blob()
+    } catch(error) {
+      console.error("Error:", error);
+    }
+  }
+
+  form.addEventListener("submit", function (event) {      // usiamo la variabile form definita in precedenza per indicare un evento al suo interno
+    event.preventDefault();                               // previene il comportamento di default del submit, ovvero il refresh della pagina
+    postData();
+  });
+
+  // PS. Ci ho messo parecchio a capire l'esercizio ma alla fine ce l'ho fatta 
+</script>
+
+
