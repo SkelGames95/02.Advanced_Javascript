@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+    function getValues() {
+        var formInputs = document.querySelectorAll('.form-input');  // seleziono a partire dalla classe degli input
+
+        formInputs.forEach(function (input) {                       // itero l'array ricavato
+          var label = input.previousElementSibling.textContent;     // per ogni elemento prendo il contenuto della proprietà "textContent" dell'elemento precedente sullo stesso livello (sx, ovvero i label)
+          var value = input.value;                                  // per ogni elemento prendo anche il contenuto della proprietà "value"
+          console.log(`${label} ${value}`);                         // stampo con lo string template all'interno dell'iterazione in modo da stampare riga per riga
+        });
+      }
+      getValues();
+</script>
