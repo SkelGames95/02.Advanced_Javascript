@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>List of Titles</h1>
+    <ul class="todoList" id="todoContainer"></ul>
+    <script>
+        async function getTodo() {
+            const todoList = document.getElementById("todoContainer");
+            let response = await fetch ("https://jsonplaceholder.typicode.com/todos");
+            let data = await response.json();
+            
+            data.forEach((el) => {
+                let list = document.createElement("li");
+                list.textContent = el.title;
+                todoList.appendChild(list)
+            })
+        }
+        getTodo();
+    </script>
+</body>
+</html>
